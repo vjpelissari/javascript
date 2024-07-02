@@ -94,6 +94,7 @@ secondItem.nextElementSibling.style.color = 'green';
 secondItem.previousElementSibling.style.color = 'green';
 */
 
+/*
 // CREATE ELEMENTS IN DOM
 // creating a div
 const div = document.createElement('div');
@@ -111,12 +112,15 @@ div.appendChild(text);
 document.body.appendChild(div);
 // or:
 document.querySelector('ul').appendChild(div);
+*/
+
 
 // Now, let´s creating elements in DOM.
 // Firts, in a Quick an Dirty way.
 // After, in a Clean & Performant
 
 // Quick & Dirt
+/*
 function createListItem(item) {
     const li = document.createElement('li');
 
@@ -127,5 +131,24 @@ function createListItem(item) {
 
     document.querySelector('.items').appendChild(li);
 }
+*/
 
 // Clean & Performant
+function createNewItem(item) {
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(item));
+
+    const button = document.createElement('button');
+    button.className = 'remove-item btn-link text-red';
+
+    const icon = document.createElement('i');
+    icon.className = 'fa-solid fa-xmark';
+
+    button.appendChild(icon);
+    li.appendChild(button);
+
+    //console.log(li.innerHTML);
+    document.querySelector('.items').appendChild(li);
+}
+
+createNewItem('Cheese');
